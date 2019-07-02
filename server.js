@@ -1,7 +1,7 @@
 // Imports the express module
 let express = require("express");
 
-let PORT = process.env.port || 8080
+let PORT = process.env.port || 9000
 
 // Intiailize an instance of express
 let app = express();
@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 // Create an intance of handlebars
-let exphbs = require("express-handlebars");
+let exshbs = require("express-handlebars");
 
 app.engine("handlebars", exshbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
