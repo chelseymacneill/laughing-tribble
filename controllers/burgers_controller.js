@@ -32,7 +32,5 @@ router.post("api/burgers", function(request, response) {
         });
 });
 
-
-
 // Export object to use outside of this file
-module.exports = 
+module.exports = router
