@@ -21,10 +21,10 @@ router.get("/", function(request, response){
 });
 
 // When does this get triggered? 
-router.post("api/burgers", function(request, response) {
+router.post("/api/burgers", function(request, response) {
     burger_model.create(
-        [ "burger", "devoured"], 
-        [request.body.burger, request.body.devoured],
+        [ "burger_name", "devoured"], 
+        [request.body.burger_name, request.body.devoured],
         function(result) {
             // Send back an id of the new burger
             // What is insert ID? Where did it come from 

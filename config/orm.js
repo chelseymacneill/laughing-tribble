@@ -1,6 +1,16 @@
 // Requre the connection to the db for the orm to work 
 var connection = require("./connection.js"); // might not be the right connection link
 
+function printQuestionMarks(num) {
+    var arr = [];
+  
+    for (var i = 0; i < num; i++) {
+      arr.push("?");
+    }
+  
+    return arr.toString();
+  };
+
 // Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
     var arr = [];
@@ -42,9 +52,9 @@ let orm = {
 
         queryString += "(";
         queryString += columns.toString();
-        queryString += ")";
-        queryString += "VALUES";
-        queryString += printQuestionMarks(values.length);
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += values.map(x => "?").toString()
         queryString += ")"
 
         console.log(queryString);
